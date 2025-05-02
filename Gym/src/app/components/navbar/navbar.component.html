@@ -1,0 +1,17 @@
+<div class="contenedor">
+    <h1>Routing en Angular</h1>
+    <h3>Carlos Franco Acosta</h3>
+    <nav>
+      <a routerLink="/home">Home</a>
+      <a routerLink="/about">About</a>
+      <a routerLink="/contact">Contact</a>
+      <a routerLink="/usuario">
+        @if(usuario === '' || usuario === undefined || usuario === null){
+            Usuario
+        }@else{
+            <span>Hola! {{usuario}}</span>
+        }
+      </a>
+    </nav>
+
+  </div>

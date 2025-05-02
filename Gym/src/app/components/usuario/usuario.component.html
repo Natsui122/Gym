@@ -1,0 +1,21 @@
+@if(!loginUsuario){
+    <div class="formulario">
+        <form>
+          <div class="">
+            <label for="usuario" class="">Nombre de Usuario</label>
+            <input type="text" class="" name="username" [(ngModel)]="usuario.username">
+          </div>
+          <div class="">
+            <label for="passsword" class="">Contraseña</label>
+            <input type="password" class="" name="password" [(ngModel)]="usuario.password">
+          </div>
+      
+          <button type="button" (click)="login()">Enviar</button>
+        </form>
+    </div>
+}@else {
+    <div class="formulario">
+        <h1>Bienvenido {{usuario.username}}</h1>
+        <button type="button" (click)="logout()">Cerrar Sesión</button>
+    </div>
+}
