@@ -1,13 +1,15 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output,   OnInit } from '@angular/core';
 import { Usuario } from '../../servicio/usuario';
 import { CuentasService } from '../../servicio/cuentas.service';
 import { UsuarioEstadoService } from '../../servicio/estado/usuario-estado.service';
 import {Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { EjerciciosService } from '../../servicio/ejercicio/ejercicios.service'; // Importa el servicio de ejercicios
 
 @Component({
   selector: 'app-usuario',
-  imports: [FormsModule],
+  standalone: true,
+  imports: [FormsModule,],
   templateUrl: './usuario.component.html',
   styleUrl: './usuario.component.css'
 })
@@ -20,7 +22,9 @@ export class UsuarioComponent {
   };
   loginUsuario: boolean = false
 
-  constructor(private cuentasService: CuentasService, private usuarioEstadoService : UsuarioEstadoService, private router: Router) { }
+  constructor(private cuentasService: CuentasService, private usuarioEstadoService : UsuarioEstadoService, private router: Router, 
+    private ejerciciosService: EjerciciosService 
+  ) { } // private ejerciciosService: EjerciciosService para servicio de api externa
   
   login(): void {
     const Usuario = this.cuentasService.getUsuario(this.usuario.username);
@@ -43,5 +47,38 @@ export class UsuarioComponent {
     this.usuario.nombre = '';
     this.router.navigate(['/usuario']);
   }
+
+  //prueba del api externa, se puede eliminar el codigo siguiente y usarlo en el componente que se necesite
+  ejercicios: any[] = [];
+
+   /*ngOnInit(): void {
+    this.ejerciciosService.getEjercicios().subscribe({
+
+      next: (data) => this.successRequest(data),
+      error: (error) => { console.error('Error al obtener los ejercicios:', error);}
+
+    }
+      
+    );
+   }
+
+   successRequest(data: any): void {
+    console.log(data);
+    this.ejercicios = data;
+    console.log(this.ejercicios);
+   }*/
+
+    ngOnInit(): void {
+      this.ejerciciosService.getEjercicios().subscribe(
+        data => {
+          this.ejercicios = data;
+          console.log(this.ejercicios);
+        },
+        error => {
+          console.error('Error al obtener ejercicios:', error);
+        }
+      );
+    }
+  
 
 }
