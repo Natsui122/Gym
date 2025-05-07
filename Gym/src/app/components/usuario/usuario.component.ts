@@ -32,7 +32,7 @@ export class UsuarioComponent {
     if (this.loginUsuario) {
       alert(`Bienvenido ${Usuario?.nombre}`);
       this.usuarioEstadoService.loginUsuario(this.usuario.username);
-      this.router.navigate(['/admin']);
+      this.router.navigate(['/usuarios']);
 
     } else {
       alert('Usuario o contraseña incorrectos');
