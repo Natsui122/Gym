@@ -1,0 +1,26 @@
+.inicio-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.carrusel {
+  width: 300%;
+}
+.carrusel img {
+  width: 33.33%;
+}
+
+.ubicacion iframe {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.planes .card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.planes .card:hover {
+  transform: translateY(-10px);
+}
