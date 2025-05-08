@@ -1,18 +1,11 @@
 [
-    {
-      "nombre": "Carlos Díaz",
-      "especialidad": "Entrenamiento Funcional",
-      "experiencia": "5 años"
-    },
-    {
-      "nombre": "Lucía Pérez",
-      "especialidad": "Yoga y Pilates",
-      "experiencia": "3 años"
-    },
-    {
-      "nombre": "Miguel Ángel",
-      "especialidad": "CrossFit",
-      "experiencia": "7 años"
-    }
-  ]
+  { "nombre": "Juan Pérez", "especialidad": "Crossfit" },
+  { "nombre": "Laura García", "especialidad": "Pilates" },
+  { "nombre": "Pedro Martínez", "especialidad": "Boxeo" },
+  { "nombre": "Ana López", "especialidad": "Yoga" },
+  { "nombre": "Miguel Torres", "especialidad": "Entrenamiento Funcional" },
+  { "nombre": "Sara Díaz", "especialidad": "Cardio" },
+  { "nombre": "Daniel Gómez", "especialidad": "Pesas" }
+]
+
   

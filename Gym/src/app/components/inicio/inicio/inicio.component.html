@@ -1,22 +1,21 @@
 <div class="inicio-container">
-  <!-- Carrusel -->
   <div class="carrusel-container overflow-hidden relative w-full h-64">
     <div class="carrusel flex transition-transform duration-500" id="carrusel">
-      <img src="banner1.webp" alt="Gimnasio Eter Gym" class="w-full h-64 object-cover">
-      <img src="mapa.jpg" alt="Equipos de Entrenamiento" class="w-full h-64 object-cover">
-      <img src="eter.jpg" alt="Clases Personalizadas" class="w-full h-64 object-cover">
+      <div class="slide">
+        <img src="banner1.webp" alt="Gimnasio Eter Gym" class="w-full h-64 object-cover">
+      </div>
+      <div class="slide">
+        <img src="mapa.jpg" alt="Equipos de Entrenamiento" class="w-full h-64 object-cover">
+      </div>
+      <div class="slide">
+        <img src="eter.jpg" alt="Clases Personalizadas" class="w-full h-64 object-cover">
+      </div>
     </div>
-  
-    <button class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black text-white p-2" (click)="anterior()">
-      &#9664;
-    </button>
-    <button class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black text-white p-2" (click)="siguiente()">
-      &#9654;
-    </button>
-  </div>
-  
 
-  <!-- Ubicación -->
+    <button class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black text-white p-2" (click)="anterior()">&#9664;</button>
+    <button class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black text-white p-2" (click)="siguiente()">&#9654;</button>
+  </div>
+
   <div class="ubicacion mt-8">
     <h2>Ubicación</h2>
     <iframe
@@ -24,7 +23,6 @@
       width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
   </div>
 
-  <!-- Planes -->
   <div class="planes mt-8">
     <h2>Planes</h2>
     <div class="grid grid-cols-3 gap-4">
@@ -33,7 +31,7 @@
         <p id="descripcion1"></p>
         <p><strong>Precio:</strong> $<span id="precio1"></span></p>
         <p><strong>Duración:</strong> <span id="duracion1"></span></p>
-        <button onclick="guardarEnLocalStorage(1)">Seleccionar Plan</button>
+        <button (click)="guardarEnLocalStorage(1)">Seleccionar Plan</button>
       </div>
 
       <div class="card p-4 bg-gray-100 rounded-lg" id="card2">
@@ -41,7 +39,7 @@
         <p id="descripcion2"></p>
         <p><strong>Precio:</strong> $<span id="precio2"></span></p>
         <p><strong>Duración:</strong> <span id="duracion2"></span></p>
-        <button onclick="guardarEnLocalStorage(2)">Seleccionar Plan</button>
+        <button (click)="guardarEnLocalStorage(2)">Seleccionar Plan</button>
       </div>
 
       <div class="card p-4 bg-gray-100 rounded-lg" id="card3">
@@ -49,7 +47,7 @@
         <p id="descripcion3"></p>
         <p><strong>Precio:</strong> $<span id="precio3"></span></p>
         <p><strong>Duración:</strong> <span id="duracion3"></span></p>
-        <button onclick="guardarEnLocalStorage(3)">Seleccionar Plan</button>
+        <button (click)="guardarEnLocalStorage(3)">Seleccionar Plan</button>
       </div>
     </div>
   </div>
