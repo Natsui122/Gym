@@ -1,11 +1,10 @@
 [
-  { "nombre": "Juan Pérez", "especialidad": "Crossfit" },
-  { "nombre": "Laura García", "especialidad": "Pilates" },
-  { "nombre": "Pedro Martínez", "especialidad": "Boxeo" },
-  { "nombre": "Ana López", "especialidad": "Yoga" },
-  { "nombre": "Miguel Torres", "especialidad": "Entrenamiento Funcional" },
-  { "nombre": "Sara Díaz", "especialidad": "Cardio" },
-  { "nombre": "Daniel Gómez", "especialidad": "Pesas" }
+  { "nombre": "Juan Pérez", "especialidad": "Crossfit", "imagen": "assets/juan.jpg", "clases": ["CrossFit"] },
+  { "nombre": "Laura García", "especialidad": "Pilates", "imagen": "assets/laura.jpg", "clases": ["Pilates"] },
+  { "nombre": "Pedro Martínez", "especialidad": "Boxeo", "imagen": "assets/pedro.jpg", "clases": ["Kickboxing"] },
+  { "nombre": "Ana López", "especialidad": "Yoga", "imagen": "assets/ana.jpg", "clases": ["Yoga"] },
+  { "nombre": "Miguel Torres", "especialidad": "Entrenamiento Funcional", "imagen": "assets/miguel.jpg", "clases": ["CrossFit"] },
+  { "nombre": "Sara Díaz", "especialidad": "Cardio", "imagen": "assets/sara.jpg", "clases": ["Kickboxing"] },
+  { "nombre": "Daniel Gómez", "especialidad": "Pesas", "imagen": "assets/daniel.jpg", "clases": ["Pilates"] },
+  { "nombre": "Carlos Ramírez", "especialidad": "Flexibilidad", "imagen": "assets/carlos.jpg", "clases": ["Yoga"] }
 ]
-
-  

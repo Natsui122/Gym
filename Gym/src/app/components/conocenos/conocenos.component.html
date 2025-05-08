@@ -1,44 +1,57 @@
 <div class="p-4">
-    <!-- Instalaciones (Carrusel) -->
-    <div class="carrusel-container overflow-hidden relative w-full h-64">
-      <div class="carrusel flex transition-transform duration-500" id="carrusel">
-        <div class="slide">
-          <img src="banner1.webp" alt="Gimnasio Eter Gym" class="w-full h-64 object-cover">
-        </div>
-        <div class="slide">
-          <img src="mapa.jpg" alt="Equipos de Entrenamiento" class="w-full h-64 object-cover">
-        </div>
-        <div class="slide">
-          <img src="eter.jpg" alt="Clases Personalizadas" class="w-full h-64 object-cover">
-        </div>
+  <!-- Instalaciones (Carrusel) -->
+  <div class="carrusel-container overflow-hidden relative w-full h-64">
+    <div class="carrusel flex transition-transform duration-500" id="carrusel">
+      <div class="slide">
+        <img src="banner1.webp" alt="Gimnasio Eter Gym" class="w-full h-64 object-cover">
       </div>
-  
-      <button class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black text-white p-2" (click)="anterior()">&#9664;</button>
-      <button class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black text-white p-2" (click)="siguiente()">&#9654;</button>
+      <div class="slide">
+        <img src="mapa.jpg" alt="Equipos de Entrenamiento" class="w-full h-64 object-cover">
+      </div>
+      <div class="slide">
+        <img src="eter.jpg" alt="Clases Personalizadas" class="w-full h-64 object-cover">
+      </div>
     </div>
-    
-  
-    <!-- Nuestro Equipo (Entrenadores Cards) -->
-    <div #entrenadoresContainer class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-4">
-      <!-- Los entrenadores se insertarán aquí dinámicamente con TypeScript -->
-    </div>
-  
-    <!-- Filosofía de la Empresa -->
-    <div class="bg-gray-900 p-4 rounded mb-4">
-      <h2 class="text-green-400 mb-2">Filosofía de la Empresa</h2>
-      <p class="text-gray-400">
-        En nuestro gimnasio, creemos en la disciplina, el esfuerzo y el compromiso con el bienestar físico y mental.
-      </p>
-    </div>
-  
-    <!-- Soporte (Buzón de correo) -->
-    <div class="bg-gray-900 p-4 rounded">
-      <h2 class="text-green-400 mb-2">Soporte</h2>
-      <form (submit)="enviarCorreo($event)">
-        <input type="email" placeholder="Tu correo" class="bg-gray-800 text-gray-400 p-2 mb-2 w-full" required />
-        <textarea placeholder="Mensaje" class="bg-gray-800 text-gray-400 p-2 mb-2 w-full" required></textarea>
-        <button type="submit" class="bg-green-400 text-black p-2">Enviar</button>
-      </form>
-    </div>
+
+    <button class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black text-white p-2" (click)="anterior()">&#9664;</button>
+    <button class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black text-white p-2" (click)="siguiente()">&#9654;</button>
   </div>
   
+
+  <!-- Nuestro Equipo (Entrenadores Cards) -->
+  <h2 class="text-green-400 text-center my-6">Nuestros Entrenadores</h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-6">
+    @for(entrenador of entrenadores; track entrenador) {
+      <div class="bg-gray-800 p-4 rounded">
+        <img [src]="entrenador.imagen" alt="{{ entrenador.nombre }}" 
+             class="w-full h-36 object-cover rounded mb-2">
+        <h3 class="text-green-400 mb-2">{{ entrenador.nombre }}</h3>
+        <p class="text-gray-400">{{ entrenador.especialidad }}</p>
+        <h4 class="text-green-400 mt-2">Clases:</h4>
+        <ul>
+          @for(clase of entrenador.clases; track clase) {
+            <li class="text-gray-400">{{ clase }}</li>
+          }
+        </ul>
+      </div>
+    }
+  </div>
+
+  <!-- Filosofía de la Empresa -->
+  <div class="bg-gray-900 p-4 rounded mb-4">
+    <h2 class="text-green-400 mb-2">Filosofía de la Empresa</h2>
+    <p class="text-gray-400">
+      En nuestro gimnasio, creemos en la disciplina, el esfuerzo y el compromiso con el bienestar físico y mental.
+    </p>
+  </div>
+
+  <!-- Soporte (Buzón de correo) -->
+  <div class="bg-gray-900 p-4 rounded">
+    <h2 class="text-green-400 mb-2">Soporte</h2>
+    <form (submit)="enviarCorreo($event)">
+      <input type="email" placeholder="Tu correo" class="bg-gray-800 text-gray-400 p-2 mb-2 w-full" required />
+      <textarea placeholder="Mensaje" class="bg-gray-800 text-gray-400 p-2 mb-2 w-full" required></textarea>
+      <button type="submit" class="bg-green-400 text-black p-2">Enviar</button>
+    </form>
+  </div>
+</div>
