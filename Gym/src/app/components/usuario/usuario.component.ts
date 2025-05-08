@@ -22,7 +22,7 @@ export class UsuarioComponent {
     nombre: '',
   };
   loginUsuario: boolean = false
-
+  usuarioActual: string = '';
   constructor(private cuentasService: CuentasService, private usuarioEstadoService : UsuarioEstadoService, private router: Router, 
     private ejerciciosService: EjerciciosService 
   ) { } // private ejerciciosService: EjerciciosService para servicio de api externa
@@ -91,7 +91,70 @@ export class UsuarioComponent {
           console.error('Error al obtener ejercicios:', error);
         }
       );
+      this.cargarDatos();
+
+      this.usuarioEstadoService.usuario$.subscribe(usuario => {
+        this.usuarioActual = usuario;
+      });
+      if (this.usuarioActual) {
+        const usuario = this.cuentasService.getUsuario(this.usuarioActual);
+        if (usuario) {
+          this.usuario.username = usuario.username;
+          this.usuario.nombre = usuario.nombre;
+          this.loginUsuario = true;
+        }
+      }
     }
   
 
+  mensajesContacto: any[] = [];
+  suscripciones: any[] = [];
+  editandoContacto: number | null = null;
+  editandoSuscripcion: number | null = null;
+  contactoEditado: any = {};
+  suscripcionEditada: any = {};
+  cargarDatos() {
+    this.mensajesContacto = JSON.parse(localStorage.getItem('mensajesContacto') || '[]');
+    this.suscripciones = JSON.parse(localStorage.getItem('suscripciones') || '[]');
+  }
+
+  eliminarContacto(idx: number) {
+    this.mensajesContacto.splice(idx, 1);
+    localStorage.setItem('mensajesContacto', JSON.stringify(this.mensajesContacto));
+  }
+
+  eliminarSuscripcion(idx: number) {
+    this.suscripciones.splice(idx, 1);
+    localStorage.setItem('suscripciones', JSON.stringify(this.suscripciones));
+  }
+
+  editarContacto(idx: number) {
+    this.editandoContacto = idx;
+    this.contactoEditado = { ...this.mensajesContacto[idx] };
+  }
+
+  guardarContacto(idx: number) {
+    this.mensajesContacto[idx] = { ...this.contactoEditado };
+    localStorage.setItem('mensajesContacto', JSON.stringify(this.mensajesContacto));
+    this.editandoContacto = null;
+  }
+
+  cancelarEdicionContacto() {
+    this.editandoContacto = null;
+  }
+
+  editarSuscripcion(idx: number) {
+    this.editandoSuscripcion = idx;
+    this.suscripcionEditada = { ...this.suscripciones[idx] };
+  }
+
+  guardarSuscripcion(idx: number) {
+    this.suscripciones[idx] = { ...this.suscripcionEditada };
+    localStorage.setItem('suscripciones', JSON.stringify(this.suscripciones));
+    this.editandoSuscripcion = null;
+  }
+
+  cancelarEdicionSuscripcion() {
+    this.editandoSuscripcion = null;
+  }
 }

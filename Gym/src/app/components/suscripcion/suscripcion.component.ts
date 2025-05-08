@@ -1,37 +1,35 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
+import { Formulario2Component } from '../formulario2/formulario2.component';
 
 @Component({
   selector: 'app-suscripcion',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ReactiveFormsModule, Formulario2Component],
   templateUrl: './suscripcion.component.html'
 })
 export class SuscripcionComponent {
-  planes = [
-    { nombre: 'Plan Básico', descripcion: 'Acceso a todas las máquinas', precio: '$30/mes' },
-    { nombre: 'Plan Premium', descripcion: 'Acceso a máquinas y clases especiales', precio: '$50/mes' },
-    { nombre: 'Plan VIP', descripcion: 'Acceso total más asesoría personalizada', precio: '$80/mes' }
-  ];
-  
-  clases: any[] = [];
-  entrenadores: any[] = [];
+  clases: string[] = ['Yoga', 'PKickboxing', 'CrossFit', 'Pilates'];
+  minFecha: string = new Date().toISOString().split('T')[0];
+  suscripcionForm;
+  datosParaFormulario2: any = null;
 
-  constructor(private http: HttpClient) {
-    this.obtenerClases();
-    this.obtenerEntrenadores();
-  }
-
-  obtenerClases() {
-    this.http.get<any[]>('clases.json').subscribe(data => {
-      this.clases = data;
+  constructor(private fb: FormBuilder) {
+    this.suscripcionForm = this.fb.group({
+      nombre: ['', [Validators.required, Validators.minLength(3)]],
+      telefono: ['', [Validators.required, Validators.pattern('^[0-9]{7,15}$')]],
+      clase: ['', Validators.required],
+      fecha: ['', Validators.required],
+      publicidad: [false]
     });
   }
 
-  obtenerEntrenadores() {
-    this.http.get<any[]>('entrenadores.json').subscribe(data => {
-      this.entrenadores = data;
-    });
+  enviar() {
+    if (this.suscripcionForm.valid) {
+      this.datosParaFormulario2 = this.suscripcionForm.value;
+      // Opcional: resetear el formulario
+      this.suscripcionForm.reset({ publicidad: false });
+    }
   }
 }
