@@ -5,6 +5,7 @@ import { UsuarioEstadoService } from '../../servicio/estado/usuario-estado.servi
 import {Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { EjerciciosService } from '../../servicio/ejercicio/ejercicios.service'; // Importa el servicio de ejercicios
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-usuario',
@@ -30,12 +31,24 @@ export class UsuarioComponent {
     const Usuario = this.cuentasService.getUsuario(this.usuario.username);
     this.loginUsuario = this.cuentasService.comprobarCredenciales(this.usuario.username, this.usuario.password);
     if (this.loginUsuario) {
-      alert(`Bienvenido ${Usuario?.nombre}`);
+      //alert(`Bienvenido ${Usuario?.nombre}`);
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: `Bienvenido ${Usuario?.nombre}`,
+        showConfirmButton: true
+      });
       this.usuarioEstadoService.loginUsuario(this.usuario.username);
       this.router.navigate(['/usuarios']);
 
     } else {
-      alert('Usuario o contraseña incorrectos');
+      //alert('Usuario o contraseña incorrectos');
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: "Usuario o contraseña incorrectos",
+        showConfirmButton: true
+      });
     }
   }
 
