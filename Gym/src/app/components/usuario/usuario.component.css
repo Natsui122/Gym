@@ -1,91 +1,69 @@
-/* archivo de CSS del componente (por ejemplo, formulario.component.css) */
-
 :host {
-  --oro: #C9B243;
-  --negro: #222222;
-  --gris-oscuro-1: #1e1e1e;
-  --gris-oscuro-2: #2a2a2a;
-  --blanco: #ffffff;
-  --gris-claro: #cccccc;
-}
-
-.container {
-  background: linear-gradient(to bottom, var(--gris-oscuro-1), var(--gris-oscuro-2));  /* Fondo degradado vertical */
-  padding: 60px 20px;  /* Espaciado para separar del header y footer */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.formulario {
-  background-color: var(--gris-oscuro-2);  /* Fondo oscuro semi-transparente */
-  padding: 32px;
-  border-radius: 12px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  max-width: 450px;
-  width: 100%;
-  color: var(--blanco);
-}
-
-h1, h2, h3 {
-  color: var(--oro);
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-label {
-  font-size: 16px;
-  font-weight: bold;
-  color: var(--blanco);
   display: block;
-  margin-bottom: 8px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #F5F5F5, #D6C59D, #E2D1B3);
+  padding: 40px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-input[type="text"], input[type="password"] {
-  background-color: var(--gris-oscuro-2);
-  color: var(--blanco);
-  padding: 14px;
-  width: 100%;
-  border-radius: 8px;
-  border: 1px solid var(--gris-claro);
-  margin-bottom: 20px;
-  font-size: 16px;
+/* Contenedor principal centrado */
+.container {
+  max-width: 400px;
+  margin: 60px auto;
 }
 
-input[type="text"]:focus, input[type="password"]:focus {
-  border-color: var(--oro);
-  outline: none;
-  background-color: var(--gris-oscuro-1);
-}
-
-button {
-  background-color: var(--oro);
-  color: var(--negro);
-  padding: 14px;
-  width: 100%;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  font-size: 18px;
+/* Texto dorado */
+.text-oro {
+  color: #C9B243;
   font-weight: bold;
-  transition: background-color 0.3s;
-  margin-top: 16px;
 }
 
-button:hover {
-    background-color: #fff;
-    color: #C9B243;
+/* Estilo del formulario */
+.formulario {
+  background-color: #ffffff;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-button:active {
-  background-color: #B88E30;
+/* Elementos del formulario */
+.formulario label,
+.formulario input,
+.formulario button {
+  margin-bottom: 16px;
+  display: block;
+  width: 100%;
 }
 
-p {
-  text-align: center;
-  color: var(--gris-claro);
+.formulario input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+  transition: border-color 0.3s ease;
 }
 
-input, button {
-  transition: all 0.3s ease-in-out;
+.formulario input:focus {
+  border-color: #C9B243;
+  outline: none;
+}
+
+/* Botón dorado con degradado y efecto hover */
+.formulario button {
+  background: linear-gradient(135deg, #C9B243, #bfa335);
+  color: #ffffff;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(201, 178, 67, 0.3);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.formulario button:hover {
+  background: linear-gradient(135deg, #bfa335, #a8952f);
+  box-shadow: 0 6px 16px rgba(201, 178, 67, 0.45);
 }

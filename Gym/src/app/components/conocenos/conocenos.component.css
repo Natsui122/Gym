@@ -1,5 +1,5 @@
 .contabout {
-  background-color: #222222; /* Negro profundo */
+  background: linear-gradient(135deg, #1a1a1a, #2e2e2e, #C9B243, #E2D1B3, #ffffff);
   color: #fff;
   padding: 40px 20px;
 }
