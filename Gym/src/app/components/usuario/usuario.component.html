@@ -1,28 +1,32 @@
-@if(!loginUsuario){
+@if(!loginUsuario) {
+  <div class="container">
     <div class="formulario">
-        <form>
-          <div class="">
-            <label for="usuario" class="">Nombre de Usuario</label>
-            <input type="text" class="" name="username" [(ngModel)]="usuario.username">
-          </div>
-          <div class="">
-            <label for="passsword" class="">Contraseña</label>
-            <input type="password" class="" name="password" [(ngModel)]="usuario.password">
-          </div>
-      
-          <button type="button" (click)="login()">Enviar</button>
-        </form>
+      <form>
+        <div class="">
+          <label for="usuario" class="text-oro">Nombre de Usuario</label>
+          <input type="text" name="username" [(ngModel)]="usuario.username">
+        </div>
+        <div class="">
+          <label for="password" class="text-oro">Contraseña</label>
+          <input type="password" name="password" [(ngModel)]="usuario.password">
+        </div>
+        <button type="button" (click)="login()">Enviar</button>
+      </form>
     </div>
-}@else {
+  </div>
+} @else {
+  <div class="container">
     <div class="formulario">
-        <h1>Bienvenido {{usuario.username}}</h1>
-        <button type="button" (click)="logout()">Cerrar Sesión</button>
+      <h1 class="text-oro">Bienvenido {{usuario.username}}</h1>
+      <button type="button" (click)="logout()">Cerrar Sesión</button>
     </div>
+  </div>
 }
+
 <!-- Api externa de ejercicios (prueba de funcionamiento) -->
 <!--Esto se puede eliminar para usarse en el componente adecuado-->
-<div>
-  @for(ejer of ejercicios; track  ejer){
+<div class="container">
+  @for(ejer of ejercicios; track ejer) {
     <h3>{{ ejer.name }}</h3>
     <p>Músculo: {{ ejer.muscle }}</p>
     <p>Tipo: {{ ejer.type }}</p>

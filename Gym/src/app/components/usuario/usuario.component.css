@@ -1,47 +1,90 @@
+/* archivo de CSS del componente (por ejemplo, formulario.component.css) */
+
+:host {
+  --oro: #C9B243;
+  --negro: #222222;
+  --gris-oscuro-1: #1e1e1e;
+  --gris-oscuro-2: #2a2a2a;
+  --blanco: #ffffff;
+  --gris-claro: #cccccc;
+}
+
+.container {
+  background: linear-gradient(to bottom, var(--gris-oscuro-1), var(--gris-oscuro-2));  /* Fondo degradado vertical */
+  padding: 60px 20px;  /* Espaciado para separar del header y footer */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .formulario {
-    max-width: 400px;
-    margin: 20px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: var(--gris-oscuro-2);  /* Fondo oscuro semi-transparente */
+  padding: 32px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  max-width: 450px;
+  width: 100%;
+  color: var(--blanco);
 }
-  
-.formulario label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-    color: #333;
+
+h1, h2, h3 {
+  color: var(--oro);
+  text-align: center;
+  margin-bottom: 20px;
 }
-  
-.formulario input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
+
+label {
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--blanco);
+  display: block;
+  margin-bottom: 8px;
 }
-  
-.formulario button {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+
+input[type="text"], input[type="password"] {
+  background-color: var(--gris-oscuro-2);
+  color: var(--blanco);
+  padding: 14px;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--gris-claro);
+  margin-bottom: 20px;
+  font-size: 16px;
 }
-  
-.formulario button:hover {
-    background-color: #0056b3;
+
+input[type="text"]:focus, input[type="password"]:focus {
+  border-color: var(--oro);
+  outline: none;
+  background-color: var(--gris-oscuro-1);
 }
-  
-.formulario h1 {
-    text-align: center;
-    color: #007bff;
-    margin-bottom: 20px;
+
+button {
+  background-color: var(--oro);
+  color: var(--negro);
+  padding: 14px;
+  width: 100%;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  margin-top: 16px;
+}
+
+button:hover {
+  background-color: #C9A239;
+}
+
+button:active {
+  background-color: #B88E30;
+}
+
+p {
+  text-align: center;
+  color: var(--gris-claro);
+}
+
+input, button {
+  transition: all 0.3s ease-in-out;
 }
