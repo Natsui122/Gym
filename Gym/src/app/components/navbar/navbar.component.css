@@ -1,25 +1,9 @@
 .contenedor {
-  background: #222;
   color: #fff;
   padding: 12px 0;
-  border-bottom: 1px solid #007bff;
+  border-bottom: 2px solid #C9B243;
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-}
-
-.contenedor h1 {
-  margin: 0;
-  font-size: 1.6rem;
-  color: #007bff;
-  text-align: center;
-  letter-spacing: 1px;
-}
-
-.contenedor h3 {
-  margin: 0 0 10px 0;
-  font-size: 1rem;
-  color: #bbb;
-  text-align: center;
-  font-weight: normal;
+  background: linear-gradient(to right, #1a1a1a, #2e2e2e, #C9B243, #ffffff);
 }
 
 nav {
@@ -34,16 +18,17 @@ nav a {
   text-decoration: none;
   font-size: 1.1rem;
   padding: 6px 14px;
-  border-radius: 4px;
+  border-radius: 100px;
   transition: background 0.2s, color 0.2s;
 }
 
-nav a:hover, nav a.active {
-  background: #007bff;
-  color: #fff;
+nav a:hover,
+nav a.active {
+  background: #C9B243;
+  color: #1a1a1a; /* texto oscuro para buen contraste con el dorado */
 }
 
 nav span {
-  color: #007bff;
+  color: #C9B243;
   font-weight: bold;
 }
