@@ -13,10 +13,16 @@ export class EjerciciosService {
 
   constructor(private http: HttpClient) { }
 
-  getEjercicios(): Observable<any[]> {
+  /*getEjercicios(): Observable<any[]> {
     const headers = new HttpHeaders({
       'X-Api-Key': this.apiKey,
     });
     return this.http.get<any[]>(this.apiUrl, { headers }).pipe(take(1));
+  }*/
+
+  getEjercicios(): Observable<any[]> {
+    
+    return this.http.get<any[]>('https://ejercicios238934297.free.beeceptor.com').pipe(take(1));
   }
+  
 }

@@ -44,3 +44,26 @@
     <button type="submit" [disabled]="suscripcionForm.invalid">Enviar</button>
   </form>
 </div>
+
+<div>
+  <label>Buscar ejercicio:</label>
+  <input type="text" [(ngModel)]="buscador" name="buscador" placeholder="Buscar ejercicio" />
+</div>
+
+<div class="ejercicios">
+  <div class="grid grid-cols-3 gap-4">
+    @for (ejer of ejerciciosFiltrados; track ejer; let i = $index) {
+      <div class="card p-4 bg-gray-100 rounded-lg" id="card1">
+        <h3>{{ejer.name}}</h3>
+        <p>{{ejer.muscle}}</p>
+        <p>{{ejer.type}}</p>
+        <button (click)="buscarAdetalle(ejer.name)">Ver detalles</button>
+      </div>
+    }
+  </div>
+  <div class="mensaje">
+    @if (ejerciciosFiltrados.length == 0) {
+      <h3>No se encontró ninguna coincidencia</h3>
+    }
+  </div>
+</div>

@@ -23,8 +23,7 @@ export class UsuarioComponent {
   };
   loginUsuario: boolean = false
   usuarioActual: string = '';
-  constructor(private cuentasService: CuentasService, private usuarioEstadoService : UsuarioEstadoService, private router: Router, 
-    private ejerciciosService: EjerciciosService 
+  constructor(private cuentasService: CuentasService, private usuarioEstadoService : UsuarioEstadoService, private router: Router,  
   ) { } // private ejerciciosService: EjerciciosService para servicio de api externa
   
   login(): void {
@@ -62,7 +61,7 @@ export class UsuarioComponent {
   }
 
   //prueba del api externa, se puede eliminar el codigo siguiente y usarlo en el componente que se necesite
-  ejercicios: any[] = [];
+  //ejercicios: any[] = [];
 
    /*ngOnInit(): void {
     this.ejerciciosService.getEjercicios().subscribe({
@@ -81,8 +80,8 @@ export class UsuarioComponent {
     console.log(this.ejercicios);
    }*/
 
-    ngOnInit(): void {
-      this.ejerciciosService.getEjercicios().subscribe(
+   ngOnInit(): void {
+      /*this.ejerciciosService.getEjercicios().subscribe(
         data => {
           this.ejercicios = data;
           console.log(this.ejercicios);
@@ -90,7 +89,7 @@ export class UsuarioComponent {
         error => {
           console.error('Error al obtener ejercicios:', error);
         }
-      );
+      );*/
       this.cargarDatos();
 
       this.usuarioEstadoService.usuario$.subscribe(usuario => {
