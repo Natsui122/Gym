@@ -1,58 +1,81 @@
-@if(!loginUsuario) {
+@if (!loginUsuario) {
   <div class="container">
     <div class="formulario">
       <form>
         <div>
-          <label for="usuario" class="text-oro">Nombre de Usuario</label>
-          <input type="text" name="username" [(ngModel)]="usuario.username" class="form-control">
+          <label
+            for="usuario"
+            [ngClass]="'text-oro'"
+            [ngStyle]="{ 'letter-spacing': '0.5px', 'margin-bottom': '6px' }"
+          >
+            Nombre de Usuario
+          </label>
+          <input
+            type="text"
+            name="username"
+            [(ngModel)]="usuario.username"
+          />
         </div>
         <div>
-          <label for="password" class="text-oro">Contraseña</label>
-          <input type="password" name="password" [(ngModel)]="usuario.password" class="form-control">
+          <label
+            for="password"
+            [ngClass]="'text-oro'"
+            [ngStyle]="{ 'letter-spacing': '0.5px', 'margin-bottom': '6px' }"
+          >
+            Contraseña
+          </label>
+          <input
+            type="password"
+            name="password"
+            [(ngModel)]="usuario.password"
+          />
         </div>
-        <button type="button" class="btn-oro" (click)="login()">Enviar</button>
+        <button type="button" class="btn-enviar" (click)="login()">Enviar</button>
       </form>
     </div>
   </div>
-}
-@else {
+} @else {
   <div class="container">
     <div class="formulario">
-      <h1 class="text-oro">Bienvenido {{usuario.username}}</h1>
-      <button type="button" class="btn-oro" (click)="logout()">Cerrar Sesión</button>
+      <h1 class="text-oro">Bienvenido {{ usuario.username }}</h1>
+      <button type="button" class="btn-enviar" (click)="logout()">Cerrar Sesión</button>
     </div>
   </div>
 
-  <div class="formulario" style="margin-top: 2rem;">
-    <h2 class="text-oro">Mensajes de Contacto</h2>
-    <table class="tabla-oro">
+  <div class="container">
+    <h2>Mensajes de Contacto</h2>
+    <table>
       <thead>
         <tr>
-          <th>Nombre</th><th>Email</th><th>Asunto</th><th>Mensaje</th><th>Acciones</th>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th>Asunto</th>
+          <th>Mensaje</th>
+          <th>Acciones</th>
         </tr>
       </thead>
       <tbody>
-        @for(mensaje of mensajesContacto; track mensaje; let j = $index) {
-          @if(editandoContacto === j) {
+        @for (mensaje of mensajesContacto; track mensaje; let j = $index) {
+          @if (editandoContacto === j) {
             <tr>
-              <td><input [(ngModel)]="contactoEditado.nombre" class="form-control"></td>
-              <td><input [(ngModel)]="contactoEditado.email" class="form-control"></td>
-              <td><input [(ngModel)]="contactoEditado.asunto" class="form-control"></td>
-              <td><input [(ngModel)]="contactoEditado.mensaje" class="form-control"></td>
+              <td><input [(ngModel)]="contactoEditado.nombre" /></td>
+              <td><input [(ngModel)]="contactoEditado.email" /></td>
+              <td><input [(ngModel)]="contactoEditado.asunto" /></td>
+              <td><input [(ngModel)]="contactoEditado.mensaje" /></td>
               <td>
-                <button class="btn-oro" (click)="guardarContacto(j)">Guardar</button>
-                <button class="btn-cancelar" (click)="cancelarEdicionContacto()">Cancelar</button>
+                <button (click)="guardarContacto(j)">Guardar</button>
+                <button (click)="cancelarEdicionContacto()">Cancelar</button>
               </td>
             </tr>
           } @else {
             <tr>
-              <td>{{mensaje.nombre}}</td>
-              <td>{{mensaje.email}}</td>
-              <td>{{mensaje.asunto}}</td>
-              <td>{{mensaje.mensaje}}</td>
+              <td>{{ mensaje.nombre }}</td>
+              <td>{{ mensaje.email }}</td>
+              <td>{{ mensaje.asunto }}</td>
+              <td>{{ mensaje.mensaje }}</td>
               <td>
-                <button class="btn-oro" (click)="editarContacto(j)">Editar</button>
-                <button class="btn-cancelar" (click)="eliminarContacto(j)">Eliminar</button>
+                <button (click)="editarContacto(j)">Editar</button>
+                <button (click)="eliminarContacto(j)">Eliminar</button>
               </td>
             </tr>
           }
@@ -60,37 +83,44 @@
       </tbody>
     </table>
 
-    <h2 class="text-oro">Suscripciones</h2>
-    <table class="tabla-oro">
+    <h2>Suscripciones</h2>
+    <table>
       <thead>
         <tr>
-          <th>Nombre</th><th>Teléfono</th><th>Clase</th><th>Fecha</th><th>Publicidad</th><th>Acciones</th>
+          <th>Nombre</th>
+          <th>Teléfono</th>
+          <th>Clase</th>
+          <th>Fecha</th>
+          <th>Publicidad</th>
+          <th>Acciones</th>
         </tr>
       </thead>
       <tbody>
-        @for(suscripcion of suscripciones; track suscripcion; let i = $index) {
-          @if(editandoSuscripcion === i) {
+        @for (suscripcion of suscripciones; track suscripcion; let i = $index) {
+          @if (editandoSuscripcion === i) {
             <tr>
-              <td><input [(ngModel)]="suscripcionEditada.nombre" class="form-control"></td>
-              <td><input [(ngModel)]="suscripcionEditada.telefono" class="form-control"></td>
-              <td><input [(ngModel)]="suscripcionEditada.clase" class="form-control"></td>
-              <td><input type="date" [(ngModel)]="suscripcionEditada.fecha" class="form-control"></td>
-              <td><input type="checkbox" [(ngModel)]="suscripcionEditada.publicidad"></td>
+              <td><input [(ngModel)]="suscripcionEditada.nombre" /></td>
+              <td><input [(ngModel)]="suscripcionEditada.telefono" /></td>
+              <td><input [(ngModel)]="suscripcionEditada.clase" /></td>
+              <td><input [(ngModel)]="suscripcionEditada.fecha" type="date" /></td>
               <td>
-                <button class="btn-oro" (click)="guardarSuscripcion(i)">Guardar</button>
-                <button class="btn-cancelar" (click)="cancelarEdicionSuscripcion()">Cancelar</button>
+                <input type="checkbox" [(ngModel)]="suscripcionEditada.publicidad" />
+              </td>
+              <td>
+                <button (click)="guardarSuscripcion(i)">Guardar</button>
+                <button (click)="cancelarEdicionSuscripcion()">Cancelar</button>
               </td>
             </tr>
           } @else {
             <tr>
-              <td>{{suscripcion.nombre}}</td>
-              <td>{{suscripcion.telefono}}</td>
-              <td>{{suscripcion.clase}}</td>
-              <td>{{suscripcion.fecha}}</td>
-              <td>{{suscripcion.publicidad ? 'Sí' : 'No'}}</td>
+              <td>{{ suscripcion.nombre }}</td>
+              <td>{{ suscripcion.telefono }}</td>
+              <td>{{ suscripcion.clase }}</td>
+              <td>{{ suscripcion.fecha }}</td>
+              <td>{{ suscripcion.publicidad ? 'Sí' : 'No' }}</td>
               <td>
-                <button class="btn-oro" (click)="editarSuscripcion(i)">Editar</button>
-                <button class="btn-cancelar" (click)="eliminarSuscripcion(i)">Eliminar</button>
+                <button (click)="editarSuscripcion(i)">Editar</button>
+                <button (click)="eliminarSuscripcion(i)">Eliminar</button>
               </td>
             </tr>
           }
