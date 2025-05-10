@@ -1,65 +1,70 @@
-<div style="min-height: 100vh; background: linear-gradient(135deg, #F5F5F5, #D6C59D, #E2D1B3); padding: 40px 20px;">
-  <div style="max-width: 1200px; margin: 0 auto;">
 
-    <!-- Planes de Suscripción -->
-    <h2 style="color: #C9B243; text-align: center; margin-bottom: 24px; font-size: 28px;">
-      Nuestros Planes de Suscripción
-    </h2>
-    <div style="display: flex; justify-content: center;">
-      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; max-width: 900px; margin-bottom: 24px;">
-        @for(plan of planes; track plan) {
-          <div class="card-hover hover:scale-105 hover:shadow-xl transition-all duration-300" 
-               style="background: linear-gradient(135deg, #333333, #1e1e1e); padding: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
-            <h3 style="color: #ffffff; margin-bottom: 10px;">{{ plan.nombre }}</h3>
-            <p style="color: #cccccc; margin-bottom: 8px;">{{ plan.descripcion }}</p>
-            <p style="color: #C9B243; font-weight: bold;">{{ plan.precio }}</p>
-          </div>
+<app-formulario2 [datosSuscripcion]="datosParaFormulario2"></app-formulario2>
+
+<div class="formulario">
+  <form [formGroup]="suscripcionForm" (ngSubmit)="enviar()">
+    <div>
+      <label>Nombre:</label>
+      <input type="text" formControlName="nombre">
+      @if(suscripcionForm.get('nombre')?.invalid && suscripcionForm.get('nombre')?.touched) {
+        <div style="color:red;">Nombre requerido (mínimo 3 letras)</div>
+      }
+    </div>
+    <div>
+      <label>Teléfono:</label>
+      <input type="tel" formControlName="telefono">
+      @if(suscripcionForm.get('telefono')?.invalid && suscripcionForm.get('telefono')?.touched) {
+        <div style="color:red;">Teléfono requerido (solo números, 7-15 dígitos)</div>
+      }
+    </div>
+    <div>
+      <label>Clase:</label>
+      <select formControlName="clase">
+        <option value="" disabled selected>Selecciona una clase</option>
+        @for(clase of clases; track clase) {
+          <option [value]="clase">{{clase}}</option>
         }
+      </select>
+      @if(suscripcionForm.get('clase')?.invalid && suscripcionForm.get('clase')?.touched) {
+        <div style="color:red;">Selecciona una clase</div>
+      }
+    </div>
+    <div>
+      <label>Fecha para ser contactado:</label>
+      <input type="date" formControlName="fecha" [min]="minFecha">
+      @if(suscripcionForm.get('fecha')?.invalid && suscripcionForm.get('fecha')?.touched) {
+        <div style="color:red;">Selecciona una fecha válida (no anterior a hoy)</div>
+      }
+    </div>
+    <div>
+      <label>
+        <input type="checkbox" formControlName="publicidad">
+        Deseo recibir publicidad
+      </label>
+    </div>
+    <button type="submit" [disabled]="suscripcionForm.invalid">Enviar</button>
+  </form>
+</div>
+
+<div>
+  <label>Buscar ejercicio:</label>
+  <input type="text" [(ngModel)]="buscador" name="buscador" placeholder="Buscar ejercicio" />
+</div>
+
+<div class="ejercicios">
+  <div class="grid grid-cols-3 gap-4">
+    @for (ejer of ejerciciosFiltrados; track ejer; let i = $index) {
+      <div class="card p-4 bg-gray-100 rounded-lg" id="card1">
+        <h3>{{ejer.name}}</h3>
+        <p>{{ejer.muscle}}</p>
+        <p>{{ejer.type}}</p>
+        <button (click)="buscarAdetalle(ejer.name)">Ver detalles</button>
       </div>
-    </div>
-
-    <!-- Clases Especiales -->
-    <h2 style="color: #C9B243; text-align: center; margin-bottom: 24px; font-size: 28px;">
-      Clases Especiales
-    </h2>
-    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; margin-bottom: 40px;">
-      @for(clase of clases; track clase) {
-        <div class="card-hover hover:scale-105 hover:shadow-xl transition-all duration-300" 
-             style="background: linear-gradient(135deg, #333333, #1e1e1e); padding: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
-          <h3 style="color: #ffffff; margin-bottom: 10px;">{{ clase.nombre }}</h3>
-          <p style="color: #cccccc; margin-bottom: 6px;">{{ clase.descripcion }}</p>
-          <p style="color: #ffffff;">{{ clase.horario }}</p>
-          <h4 style="color: #C9B243; margin-top: 12px;">Entrenadores:</h4>
-          <ul>
-            @for(entrenador of clase.entrenadores; track entrenador) {
-              <li style="color: #cccccc;">{{ entrenador }}</li>
-            }
-          </ul>
-        </div>
-      }
-    </div>
-
-    <!-- Entrenadores -->
-    <h2 style="color: #C9B243; text-align: center; margin-bottom: 24px; font-size: 28px;">
-      Nuestro Equipo de Entrenadores
-    </h2>
-    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px;">
-      @for(entrenador of entrenadores; track entrenador) {
-        <div class="card-hover hover:scale-105 hover:shadow-xl transition-all duration-300" 
-        style="background: linear-gradient(135deg, #333333, #1e1e1e); padding: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
-          <img [src]="entrenador.imagen" alt="{{ entrenador.nombre }}" 
-               style="width: 100%; height: 160px; object-fit: cover; border-radius: 8px; margin-bottom: 10px;">
-          <h3 style="color: #ffffff; margin-bottom: 8px;">{{ entrenador.nombre }}</h3>
-          <p style="color: #cccccc;">{{ entrenador.especialidad }}</p>
-          <h4 style="color: #C9B243; margin-top: 12px;">Clases:</h4>
-          <ul>
-            @for(clase of entrenador.clases; track clase) {
-              <li style="color: #cccccc;">{{ clase }}</li>
-            }
-          </ul>
-        </div>
-      }
-    </div>
-
+    }
+  </div>
+  <div class="mensaje">
+    @if (ejerciciosFiltrados.length == 0) {
+      <h3>No se encontró ninguna coincidencia</h3>
+    }
   </div>
 </div>
