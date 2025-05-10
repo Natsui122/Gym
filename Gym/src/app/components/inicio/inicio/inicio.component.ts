@@ -1,11 +1,15 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { Formulario1Component } from '../../formulario1/formulario1.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-inicio',
   standalone: true,
   templateUrl: './inicio.component.html',
   styleUrls: ['./inicio.component.css'],
+  imports: [FormsModule, Formulario1Component]
 })
 export class InicioComponent implements AfterViewInit {
   indiceActual: number = 0;
@@ -59,4 +63,28 @@ export class InicioComponent implements AfterViewInit {
     };
     localStorage.setItem('planSeleccionado', JSON.stringify(plan));
   }
+
+
+  //formulario
+
+    agregarMensaje(mensaje: { nombre: string, email: string, asunto: string, mensaje: string }) {
+      // Obtener los mensajes existentes del localStorage
+      const mensajesGuardados = localStorage.getItem('mensajesContacto');
+      let mensajesArray = mensajesGuardados ? JSON.parse(mensajesGuardados) : [];
+    
+      // Agregar el nuevo mensaje al array
+      mensajesArray.push(mensaje);
+    
+      // Guardar el array actualizado en localStorage
+      localStorage.setItem('mensajesContacto', JSON.stringify(mensajesArray));
+    
+      //alert('Formulario enviado con éxito!');
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Formulario enviado con éxito!",
+        showConfirmButton: false,
+        timer: 1500
+      });
+    }
 }

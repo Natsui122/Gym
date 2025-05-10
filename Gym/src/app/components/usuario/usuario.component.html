@@ -21,16 +21,83 @@
       <button type="button" (click)="logout()">Cerrar Sesión</button>
     </div>
   </div>
+
+    <div class="">
+      <h2>Mensajes de Contacto</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th><th>Email</th><th>Asunto</th><th>Mensaje</th><th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for(mensaje of mensajesContacto; track mensaje; let j = $index) {
+            @if(editandoContacto === j) {
+              <tr>
+                <td><input [(ngModel)]="contactoEditado.nombre"></td>
+                <td><input [(ngModel)]="contactoEditado.email"></td>
+                <td><input [(ngModel)]="contactoEditado.asunto"></td>
+                <td><input [(ngModel)]="contactoEditado.mensaje"></td>
+                <td>
+                  <button (click)="guardarContacto(j)">Guardar</button>
+                  <button (click)="cancelarEdicionContacto()">Cancelar</button>
+                </td>
+              </tr>
+            } @else {
+              <tr>
+                <td>{{mensaje.nombre}}</td>
+                <td>{{mensaje.email}}</td>
+                <td>{{mensaje.asunto}}</td>
+                <td>{{mensaje.mensaje}}</td>
+                <td>
+                  <button (click)="editarContacto(j)">Editar</button>
+                  <button (click)="eliminarContacto(j)">Eliminar</button>
+                </td>
+              </tr>
+            }
+          }
+        </tbody>
+      </table>
+  
+      <h2>Suscripciones</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th><th>Teléfono</th><th>Clase</th><th>Fecha</th><th>Publicidad</th><th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for(suscripcion of suscripciones; track suscripcion; let i = $index) {
+            @if(editandoSuscripcion === i) {
+              <tr>
+                <td><input [(ngModel)]="suscripcionEditada.nombre"></td>
+                <td><input [(ngModel)]="suscripcionEditada.telefono"></td>
+                <td><input [(ngModel)]="suscripcionEditada.clase"></td>
+                <td><input [(ngModel)]="suscripcionEditada.fecha" type="date"></td>
+                <td>
+                  <input type="checkbox" [(ngModel)]="suscripcionEditada.publicidad">
+                </td>
+                <td>
+                  <button (click)="guardarSuscripcion(i)">Guardar</button>
+                  <button (click)="cancelarEdicionSuscripcion()">Cancelar</button>
+                </td>
+              </tr>
+            } @else {
+              <tr>
+                <td>{{suscripcion.nombre}}</td>
+                <td>{{suscripcion.telefono}}</td>
+                <td>{{suscripcion.clase}}</td>
+                <td>{{suscripcion.fecha}}</td>
+                <td>{{suscripcion.publicidad ? 'Sí' : 'No'}}</td>
+                <td>
+                  <button (click)="editarSuscripcion(i)">Editar</button>
+                  <button (click)="eliminarSuscripcion(i)">Eliminar</button>
+                </td>
+              </tr>
+            }
+          }
+        </tbody>
+      </table>
+    </div>
 }
 
-<!-- Api externa de ejercicios (prueba de funcionamiento) -->
-<!--Esto se puede eliminar para usarse en el componente adecuado-->
-<div class="container">
-  @for(ejer of ejercicios; track ejer) {
-    <h3>{{ ejer.name }}</h3>
-    <p>Músculo: {{ ejer.muscle }}</p>
-    <p>Tipo: {{ ejer.type }}</p>
-    <br>
-    <br>
-  }
-</div>
