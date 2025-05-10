@@ -41,7 +41,7 @@
 h2 {
   font-size: 2rem;
   text-align: center;
-  color: #C9B243;
+  color: #fff;
   margin-bottom: 20px;
   position: relative;
   font-weight: 700;
@@ -53,10 +53,11 @@ h2::after {
   display: block;
   width: 60px;
   height: 3px;
-  background: #C9B243;
+  background: #fff;
   margin: 8px auto 0;
   border-radius: 2px;
 }
+
 
 h3 {
   font-size: 1.25rem;

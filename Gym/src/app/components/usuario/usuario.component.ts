@@ -6,11 +6,12 @@ import {Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { EjerciciosService } from '../../servicio/ejercicio/ejercicios.service'; // Importa el servicio de ejercicios
 import Swal from 'sweetalert2';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-usuario',
   standalone: true,
-  imports: [FormsModule,],
+  imports: [FormsModule,CommonModule],
   templateUrl: './usuario.component.html',
   styleUrl: './usuario.component.css'
 })
