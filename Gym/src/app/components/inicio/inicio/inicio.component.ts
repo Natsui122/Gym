@@ -3,17 +3,19 @@ import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { Formulario1Component } from '../../formulario1/formulario1.component';
 import Swal from 'sweetalert2';
+import { DomSanitizerPipe } from '../../../dom-sanitizer.pipe';
 
 @Component({
   selector: 'app-inicio',
   standalone: true,
   templateUrl: './inicio.component.html',
   styleUrls: ['./inicio.component.css'],
-  imports: [FormsModule, Formulario1Component]
+  imports: [FormsModule, Formulario1Component, DomSanitizerPipe]
 })
 export class InicioComponent implements AfterViewInit {
   indiceActual: number = 0;
   totalSlides: number = 0;
+  video:string = 'tUykoP30Gb0?si=uNxmgT-d8vfMca5d';
 
   constructor(private http: HttpClient) {
     this.obtenerPlanes();
