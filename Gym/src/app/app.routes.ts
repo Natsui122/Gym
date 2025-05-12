@@ -4,7 +4,6 @@ import { AdminComponent } from './components/admin/admin.component';
 import { InicioComponent } from './components/inicio/inicio/inicio.component';
 import { ConocenosComponent } from './components/conocenos/conocenos.component';
 import { SuscripcionComponent } from './components/suscripcion/suscripcion.component';
-import { Formulario2Component } from './components/formulario2/formulario2.component';
 import { BusquedaComponent } from './components/busqueda/busqueda.component';
 
 export const routes: Routes = [
@@ -15,5 +14,6 @@ export const routes: Routes = [
     {path: 'conocenos', component: ConocenosComponent} ,
     {path: 'suscripcion', component: SuscripcionComponent},
     {path: 'ejercicio/:nombreEjercicio', component: BusquedaComponent},
+    {path: 'Equipo', component: AdminComponent},
 
 ];
