@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { BusquedaService } from '../../servicio/busqueda/busqueda.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-busqueda',
@@ -14,7 +14,11 @@ export class BusquedaComponent {
   indiceEjercicio: number = 0;
   miEjercicio: any = null;
 
-  constructor(private busquedaService: BusquedaService, private activatedRoute: ActivatedRoute) { 
+  redirectTo() {
+    this.router.navigate(['/suscripcion']);
+  }
+
+  constructor(private busquedaService: BusquedaService, private activatedRoute: ActivatedRoute, private router: Router) { 
   this.activatedRoute.params.subscribe(params => {
     this.nombreEjercicio = params['nombreEjercicio'];
     // Espera a que los ejercicios estén cargados
