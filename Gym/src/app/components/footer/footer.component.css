@@ -98,3 +98,21 @@ footer .par3 {
       gap: 30px;
     }
   }
+
+/* Estilos para la insignia de Material */
+.mat-badge-content {
+  position: absolute;
+  top: 5px;
+  right: -8px;
+  font-size: 12px;
+  line-height: 23px;
+  border-radius: 50%;
+  height: 22px;
+  width: 22px;
+  text-align: center;
+  background-color: #C9B243; /* Color accent por defecto */
+  color: white;
+  font-weight: 500;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  z-index: 1;
+}
