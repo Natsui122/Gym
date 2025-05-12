@@ -1,20 +1,24 @@
 <div class="inicio-container">
   <div class="carrusel-container overflow-hidden relative w-full h-64">
-    <div class="carrusel flex transition-transform duration-500" id="carrusel">
-      <div class="slide">
-        <img src="banner1.webp" alt="Gimnasio Eter Gym" class="w-full h-64 object-cover">
-      </div>
-      <div class="slide">
-        <img src="mapa.jpg" alt="Equipos de Entrenamiento" class="w-full h-64 object-cover">
-      </div>
-      <div class="slide">
-        <img src="eter.jpg" alt="Clases Personalizadas" class="w-full h-64 object-cover">
-      </div>
-    </div>
-
-    <button class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black text-white p-2" (click)="anterior()">&#9664;</button>
-    <button class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black text-white p-2" (click)="siguiente()">&#9654;</button>
+    <mat-card class="carrusel w-full h-full flex items-center justify-center">
+      <mat-slide-toggle (change)="anterior()" class="mr-4">&#9664;</mat-slide-toggle>
+      @if (slides && slides.length > 0) {
+        <div class="slides flex w-full h-full transition-transform duration-500" [style.transform]="'translateX(-' + indiceActual * 100 + '%)'">
+          @for (slide of slides; track slide.src) {
+            <div class="slide flex-none w-full h-full">
+              <img [src]="slide.src" [alt]="slide.alt" class="w-full h-full object-cover">
+            </div>
+          }
+        </div>
+      } @else {
+        <div class="text-center text-gray-500">
+          <p>No hay imágenes disponibles</p>
+        </div>
+      }
+      <mat-slide-toggle (change)="siguiente()" class="ml-4">&#9654;</mat-slide-toggle>
+    </mat-card>
   </div>
+
 
   <div class="ubicacion mt-8">
     <h2>Ubicación</h2>
@@ -29,7 +33,7 @@
   </div>
 
   <div class="planes mt-8">
-    <h2>Planes</h2>
+    <h2 class="plan">Planes</h2>
     <div class="grid grid-cols-3 gap-4">
       <div class="card p-4 bg-gray-100 rounded-lg" id="card1">
         <h3 id="nombre1"></h3>

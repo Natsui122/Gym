@@ -8,8 +8,13 @@
 
 /* Contenedor principal centrado */
 .container {
-  max-width: 400px;
+  max-width: 500px;
   margin: 60px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Texto dorado */
@@ -30,29 +35,36 @@
 /* Elementos del formulario */
 .formulario label,
 .formulario input,
+.formulario select,
+.formulario textarea,
 .formulario button {
   margin-bottom: 16px;
   display: block;
   width: 100%;
 }
 
-.formulario input {
-  padding: 10px;
+/* Estilo de los campos del formulario */
+.formulario input,
+.formulario select,
+.formulario textarea {
+  padding: 12px;
   border: 1px solid #ccc;
   border-radius: 6px;
   font-size: 15px;
   transition: border-color 0.3s ease;
 }
 
-.formulario input:focus {
+.formulario input:focus,
+.formulario select:focus,
+.formulario textarea:focus {
   border-color: #C9B243;
   outline: none;
 }
 
-/* Botón dorado con degradado y efecto hover */
+/* Estilo de los botones */
 .formulario button {
-  background: linear-gradient(135deg, #C9B243, #bfa335);
-  color: #ffffff;
+  background-color: #C9B243; /* Fondo dorado */
+  color: black; /* Texto negro */
   border: none;
   padding: 12px;
   font-size: 16px;
@@ -60,10 +72,20 @@
   cursor: pointer;
   font-weight: bold;
   box-shadow: 0 4px 10px rgba(201, 178, 67, 0.3);
-  transition: background 0.3s ease, box-shadow 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Efecto hover: fondo blanco, texto dorado */
 .formulario button:hover {
-  background: linear-gradient(135deg, #bfa335, #a8952f);
+  background-color: white;
+  color: #C9B243; /* Texto dorado */
   box-shadow: 0 6px 16px rgba(201, 178, 67, 0.45);
+}
+
+/* Estilo para mensajes de error */
+.formulario .error-message {
+  color: red;
+  font-size: 0.9em;
+  margin-top: -12px;
+  margin-bottom: 16px;
 }

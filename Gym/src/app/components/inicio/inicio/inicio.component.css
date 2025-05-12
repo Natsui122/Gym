@@ -9,6 +9,7 @@
   border: 2px solid #C9B243;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  height: 500px;
 }
 
 .carrusel-container button {
@@ -40,7 +41,7 @@
 h2 {
   font-size: 2rem;
   text-align: center;
-  color: #C9B243;
+  color: #fff;
   margin-bottom: 20px;
   position: relative;
   font-weight: 700;
@@ -52,10 +53,11 @@ h2::after {
   display: block;
   width: 60px;
   height: 3px;
-  background: #C9B243;
+  background: #fff;
   margin: 8px auto 0;
   border-radius: 2px;
 }
+
 
 h3 {
   font-size: 1.25rem;

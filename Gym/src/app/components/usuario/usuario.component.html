@@ -1,24 +1,44 @@
-@if(!loginUsuario) {
+@if (!loginUsuario) {
   <div class="container">
     <div class="formulario">
       <form>
-        <div class="">
-          <label for="usuario" class="text-oro">Nombre de Usuario</label>
-          <input type="text" name="username" [(ngModel)]="usuario.username">
+        <div>
+          <label
+            for="usuario"
+            [ngClass]="'text-oro'"
+            [ngStyle]="{ 'letter-spacing': '0.5px', 'margin-bottom': '6px' }"
+          >
+            Nombre de Usuario
+          </label>
+          <input
+            type="text"
+            name="username"
+            [(ngModel)]="usuario.username"
+          />
         </div>
-        <div class="">
-          <label for="password" class="text-oro">Contraseña</label>
-          <input type="password" name="password" [(ngModel)]="usuario.password">
+        <div>
+          <label
+            for="password"
+            [ngClass]="'text-oro'"
+            [ngStyle]="{ 'letter-spacing': '0.5px', 'margin-bottom': '6px' }"
+          >
+            Contraseña
+          </label>
+          <input
+            type="password"
+            name="password"
+            [(ngModel)]="usuario.password"
+          />
         </div>
-        <button type="button" (click)="login()">Enviar</button>
+        <button type="button" class="btn-enviar" (click)="login()">Enviar</button>
       </form>
     </div>
   </div>
 }@else{
   <div class="container">
     <div class="formulario">
-      <h1 class="text-oro">Bienvenido {{usuario.username}}</h1>
-      <button type="button" (click)="logout()">Cerrar Sesión</button>
+      <h1 class="text-oro">Bienvenido {{ usuario.username }}</h1>
+      <button type="button" class="btn-enviar" (click)="logout()">Cerrar Sesión</button>
     </div>
   </div>
 }
@@ -118,3 +138,49 @@
   }
 
 
+    <h2>Suscripciones</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Teléfono</th>
+          <th>Clase</th>
+          <th>Fecha</th>
+          <th>Publicidad</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (suscripcion of suscripciones; track suscripcion; let i = $index) {
+          @if (editandoSuscripcion === i) {
+            <tr>
+              <td><input [(ngModel)]="suscripcionEditada.nombre" /></td>
+              <td><input [(ngModel)]="suscripcionEditada.telefono" /></td>
+              <td><input [(ngModel)]="suscripcionEditada.clase" /></td>
+              <td><input [(ngModel)]="suscripcionEditada.fecha" type="date" /></td>
+              <td>
+                <input type="checkbox" [(ngModel)]="suscripcionEditada.publicidad" />
+              </td>
+              <td>
+                <button (click)="guardarSuscripcion(i)">Guardar</button>
+                <button (click)="cancelarEdicionSuscripcion()">Cancelar</button>
+              </td>
+            </tr>
+          } @else {
+            <tr>
+              <td>{{ suscripcion.nombre }}</td>
+              <td>{{ suscripcion.telefono }}</td>
+              <td>{{ suscripcion.clase }}</td>
+              <td>{{ suscripcion.fecha }}</td>
+              <td>{{ suscripcion.publicidad ? 'Sí' : 'No' }}</td>
+              <td>
+                <button (click)="editarSuscripcion(i)">Editar</button>
+                <button (click)="eliminarSuscripcion(i)">Eliminar</button>
+              </td>
+            </tr>
+          }
+        }
+      </tbody>
+    </table>
+  </div>
+}
