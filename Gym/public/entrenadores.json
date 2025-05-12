@@ -1,4 +1,5 @@
 [
+<<<<<<< Updated upstream
   { "nombre": "Arnold Schwarzenegger", "especialidad": "Crossfit", "imagen": "/Arnold.jpg", "clases": ["CrossFit"] },
   { "nombre": "Dana Linn Bailey", "especialidad": "Pilates", "imagen": "/Danna.jpg", "clases": ["Pilates"] },
   { "nombre": "Ronnie Coleman", "especialidad": "Boxeo", "imagen": "/Ronnie.jpg", "clases": ["Kickboxing"] },
@@ -7,4 +8,14 @@
   { "nombre": "Stephanie Sanzo", "especialidad": "Cardio", "imagen": "/Stephanie.jpg", "clases": ["Kickboxing"] },
   { "nombre": "Chris Bumstead", "especialidad": "Pesas", "imagen": "/Cbum.jpg", "clases": ["Pilates"] },
   { "nombre": "Jeff Nippard", "especialidad": "Flexibilidad", "imagen": "/Jeff.jpg", "clases": ["Yoga"] }
+=======
+  { "nombre": "Juan Pérez", "especialidad": "Crossfit", "imagen": "juan.jpg", "clases": ["CrossFit"] },
+  { "nombre": "Laura García", "especialidad": "Pilates", "imagen": "laura.jpg", "clases": ["Pilates"] },
+  { "nombre": "Pedro Martínez", "especialidad": "Boxeo", "imagen": "pedro.jpg", "clases": ["Kickboxing"] },
+  { "nombre": "Ana López", "especialidad": "Yoga", "imagen": "ana.jpg", "clases": ["Yoga"] },
+  { "nombre": "Miguel Torres", "especialidad": "Entrenamiento Funcional", "imagen": "miguel.jpg", "clases": ["CrossFit"] },
+  { "nombre": "Sara Díaz", "especialidad": "Cardio", "imagen": "sara.jpg", "clases": ["Kickboxing"] },
+  { "nombre": "Daniel Gómez", "especialidad": "Pesas", "imagen": "daniel.jpg", "clases": ["Pilates"] },
+  { "nombre": "Carlos Ramírez", "especialidad": "Flexibilidad", "imagen": "assets/carlos.jpg", "clases": ["Yoga"] }
+>>>>>>> Stashed changes
 ]
