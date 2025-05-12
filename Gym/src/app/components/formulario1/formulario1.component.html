@@ -8,30 +8,45 @@
       <form>
         <div class="mb-3">
           <label for="nombre" class="form-label">Nombre: </label>
-          <input [(ngModel)]="nombre" type="text" class="form-control" name="nombre" required>
+          <input [(ngModel)]="nombre" type="text" class="form-control" name="nombre" required (blur)="nombreTocado = true">
           @if(nombre && nombre.trim().length > 0 && nombre.trim().length < 5) {
             <div style="color: red; font-size: 0.9em;">El nombre debe tener al menos 5 caracteres.</div>
+          }
+          @if(nombreTocado && (!nombre || nombre.trim().length === 0)) {
+          <div style="color: red; font-size: 0.9em;">El nombre es obligatorio.</div>
           }
         </div>
         <div class="mb-3">
           <label for="email" class="form-label">Email:</label>
-          <input [(ngModel)]="email" type="text" class="form-control" name="email" required minlength="4">
+          <input [(ngModel)]="email" type="text" class="form-control" name="email" required minlength="4" (blur)="emailTocado = true">
           @if(email && !email.includes('@')) {
-            <div style="color: red; font-size: 0.9em;">El email debe contener un "&#64;" válido.</div>
+            <div style="color: red; font-size: 0.9em;">El email debe contener un "&#64;", Debe ser un email válido.</div>
+          }
+          @if(emailTocado && (!email || email.trim().length === 0)) {
+            <div style="color: red; font-size: 0.9em;">El email es obligatorio.</div>
+          }
+          @if(email && email.trim().length > 0 && email.trim().length < 4) {
+            <div style="color: red; font-size: 0.9em;">El email debe tener al menos 4 caracteres.</div>
           }
         </div>
         <div class="mb-3">
           <label for="asunto" class="form-label">Asunto:</label>
-          <input [(ngModel)]="asunto" type="text" class="form-control" name="asunto" required minlength="10">
+          <input [(ngModel)]="asunto" type="text" class="form-control" name="asunto" required minlength="10" (blur)="asuntoTocado = true">
           @if(asunto && asunto.trim().length > 0 && asunto.trim().length < 10) {
             <div style="color: red; font-size: 0.9em;">El asunto debe tener al menos 10 caracteres.</div>
+          }
+          @if(asuntoTocado && (!asunto || asunto.trim().length === 0)) {
+            <div style="color: red; font-size: 0.9em;">El asunto es obligatorio.</div>
           }
         </div>
         <div class="mb-3">
           <label for="mensaje" class="form-label">Mensaje:</label>
-          <textarea name="mensaje" id="" [(ngModel)]="mensaje" required="" minlength="20"></textarea>
+          <textarea name="mensaje" id="" [(ngModel)]="mensaje" required="" minlength="20" (blur)="mensajeTocado = true"></textarea>
           @if(mensaje && mensaje.trim().length > 0 && mensaje.trim().length < 20) {
             <div style="color: red; font-size: 0.9em;">El mensaje debe tener al menos 20 caracteres.</div>
+          }
+          @if(mensajeTocado && (!mensaje || mensaje.trim().length === 0)) {
+            <div style="color: red; font-size: 0.9em;">El email es obligatorio.</div>
           }
         </div>
       

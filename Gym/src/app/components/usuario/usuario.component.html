@@ -14,15 +14,19 @@
       </form>
     </div>
   </div>
-} @else {
+}@else{
   <div class="container">
     <div class="formulario">
       <h1 class="text-oro">Bienvenido {{usuario.username}}</h1>
       <button type="button" (click)="logout()">Cerrar Sesión</button>
     </div>
   </div>
+}
 
-    <div class="">
+    
+  @if (mensajesContacto.length > 0) {
+
+      <div class="">
       <h2>Mensajes de Contacto</h2>
       <table>
         <thead>
@@ -58,7 +62,15 @@
           }
         </tbody>
       </table>
-  
+    </div>
+  }@else if (mensajesContacto.length === 0  && !editandoContacto && loginUsuario) {
+    <div class="alert alert-info">
+      No hay mensajes de contacto.
+    </div>
+  }
+  @if (suscripciones.length > 0) {
+
+    <div class="">
       <h2>Suscripciones</h2>
       <table>
         <thead>
@@ -99,5 +111,10 @@
         </tbody>
       </table>
     </div>
-}
+  } @else if (suscripciones.length === 0 && !editandoSuscripcion && loginUsuario) {
+    <div class="alert alert-info">
+      No hay suscripciones.
+    </div>
+  }
+
 

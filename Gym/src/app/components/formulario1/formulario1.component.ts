@@ -39,4 +39,9 @@ export class Formulario1Component {
       !this.mensaje || this.mensaje.trim().length < 20
     );
   }
+
+  nombreTocado = false;
+  emailTocado = false;
+  asuntoTocado = false;
+  mensajeTocado = false;
 }
