@@ -34,9 +34,12 @@ nav span {
 }
 
 .user-icon {
-  font-size: 20px;          /* tamaño del icono */
-  color: white;           /* color (verde Material, por ejemplo) */
-  vertical-align: middle;   /* alinea con el texto */
-  margin-left: 4px;         /* separación respecto al texto */
+  font-size: 20px;
+  vertical-align: middle;
+  margin-left: 4px;
+  transition: color 0.2s;
+  color: inherit; /* Muy importante: hereda el color del enlace */
 }
+
+
 
