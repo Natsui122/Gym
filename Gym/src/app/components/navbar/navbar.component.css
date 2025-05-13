@@ -32,3 +32,11 @@ nav span {
   color: #C9B243;
   font-weight: bold;
 }
+
+.user-icon {
+  font-size: 20px;          /* tamaño del icono */
+  color: white;           /* color (verde Material, por ejemplo) */
+  vertical-align: middle;   /* alinea con el texto */
+  margin-left: 4px;         /* separación respecto al texto */
+}
+

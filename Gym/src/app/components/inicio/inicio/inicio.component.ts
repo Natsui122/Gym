@@ -5,6 +5,8 @@ import { Formulario1Component } from '../../formulario1/formulario1.component';
 import Swal from 'sweetalert2';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+
 
 interface Slide {
   src: string;
@@ -23,7 +25,7 @@ interface Plan {
   standalone: true,
   templateUrl: './inicio.component.html',
   styleUrls: ['./inicio.component.css'],
-  imports: [FormsModule, Formulario1Component, MatSlideToggleModule, MatCardModule]
+  imports: [FormsModule, Formulario1Component, MatSlideToggleModule, MatCardModule, MatIconModule]
 })
 export class InicioComponent implements OnInit, OnDestroy {
   indiceActual: number = 0;
