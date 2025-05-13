@@ -93,91 +93,113 @@
 
 /* Estilos para la tabla dentro de secciones tipo admin */
 
-.tabla-container {
-  padding: 2rem;
-  max-width: 100%;
-  background-color: #F4F4F4; /* Fondo claro para toda la tabla */
-  border-radius: 12px;
+/* Estilos generales */
+.text-blanco {
+  color: #fff;
 }
 
-.titulo-seccion {
-  color: #C9B243; /* Dorado */
-  margin-bottom: 1.5rem;
-  font-size: 1.8rem;
-  font-weight: bold;
-  text-align: center;
-}
-
-/* Scroll horizontal para tablas anchas */
-.tabla-scroll {
-  overflow-x: auto;
-  margin-bottom: 2rem;
-  border-radius: 10px;
-}
-
-/* Tabla con colores dorados y fondo claro */
 .tabla-oro {
   width: 100%;
-  min-width: 1000px;
   border-collapse: collapse;
-  background-color: #FAF2D2; /* Fondo claro tipo crema */
-  border: 1px solid var(--dorado);
-  color: black; /* Texto oscuro para mejor legibilidad */
-  border-radius: 10px;
-  overflow: hidden;
+  background-color: #333;
+  color: #fff;
 }
 
-/* Cabecera con fondo dorado y texto oscuro */
-.tabla-oro thead {
-  background-color: var(--dorado); /* Fondo dorado */
-  color: var(--negro); /* Texto negro */
-}
-
-/* Celdas de la tabla */
-.tabla-oro th,
-.tabla-oro td {
-  padding: 14px 18px;
+.tabla-oro th, .tabla-oro td {
+  padding: 10px;
   text-align: left;
-  border-bottom: 1px solid var(--dorado);
-  font-size: 15px;
+  border: 1px solid #C9B243;
 }
 
-/* Hover de filas */
-.tabla-oro tbody tr:hover {
-  background-color: #F7F0D7; /* Un tono más suave de amarillo */
+.tabla-oro th {
+  background-color: #C9B243;
 }
 
-/* Inputs dentro de la tabla */
-.tabla-oro input[type="text"],
-.tabla-oro input[type="email"],
-.tabla-oro input[type="date"] {
-  width: 100%;
-  padding: 6px 10px;
-  border: 1px solid var(--dorado);
-  border-radius: 4px;
-  background-color: #FFF8E1; /* Fondo claro tipo crema */
-  color: #3C3C3C; /* Texto oscuro */
+.tabla-oro tr:hover {
+  background-color: #C9B243;
+  color: #333;
 }
 
-.tabla-oro input[type="checkbox"] {
-  transform: scale(1.2);
+/* Contenedores de tabla */
+.tabla-container {
+  margin-top: 20px;
 }
 
-/* Botones de acción */
-.tabla-oro button {
-  background-color: var(--dorado); /* Fondo dorado */
-  color: var(--negro); /* Texto negro */
+.tabla-scroll {
+  overflow-x: auto;
+}
+
+/* Botones */
+.btn-enviar, .btn-editar, .btn-eliminar, .btn-cancelar {
+  padding: 10px 15px;
+  margin: 5px;
   border: none;
-  padding: 6px 12px;
-  border-radius: 5px;
-  font-weight: bold;
   cursor: pointer;
-  transition: all 0.3s ease;
-  margin-right: 6px;
+  background-color: #C9B243;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 5px;
 }
 
-.tabla-oro button:hover {
-  background-color: var(--blanco); /* Fondo blanco */
-  color: var(--dorado); /* Texto dorado */
-  border: 1px solid var(--dorado);
+.btn-enviar:hover, .btn-editar:hover, .btn-eliminar:hover, .btn-cancelar:hover {
+  background-color: #C9B243;
+}
+
+.btn-cancelar {
+  background-color: #C9B243;
+}
+
+.btn-cancelar:hover {
+  background-color: #C9B243;
+}
+
+/* Títulos de sección */
+.titulo-seccion {
+  color: #C9B243;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+/* Estilos generales para los mensajes */
+.mensaje {
+  text-align: center;
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #fff;  /* Fondo blanco */
+  border-radius: 10px;
+  border: 1px solid #C9B243;  /* Borde dorado */
+  color: #C9B243;  /* Texto dorado */
+  font-size: 1.2rem;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Estilo específico para los textos dentro de mensaje */
+.mensaje p {
+  margin: 0;
+  padding: 10px 0;
+  color: #C9B243;  /* Texto dorado */
+  font-size: 1.4rem;
+}
+
+/* Mensaje sin datos con un tono más suave */
+.mensaje-no-datos {
+  background-color: #f9f9f9;  /* Fondo blanco suave */
+  border-color: #C9B243;  /* Borde dorado */
+  color: #C9B243;  /* Texto dorado */
+}
+
+/* Estilos para animación de entrada */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
