@@ -130,7 +130,7 @@ export class InicioComponent implements OnInit, OnDestroy {
       localStorage.setItem('planSeleccionado', JSON.stringify(planSeleccionado));
 
       Swal.fire({
-        position: "top-end",
+        position: "center",
         icon: "success",
         title: "Plan seleccionado!",
         showConfirmButton: false,

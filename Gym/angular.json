@@ -15,7 +15,8 @@
           "options": {
             "outputPath": "dist/gym",
             "index": "src/index.html",
-            "browser": "src/main.ts",
+            "browser": "src/main.ts",    
+      "baseHref": "https://natsui122.github.io/Gym/",
             "polyfills": [
               "zone.js"
             ],
