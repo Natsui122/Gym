@@ -1,9 +1,10 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-formulario1',
-  imports: [FormsModule],
+  imports: [FormsModule,MatButtonModule],
   templateUrl: './formulario1.component.html',
   styleUrl: './formulario1.component.css'
 })

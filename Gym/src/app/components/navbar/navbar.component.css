@@ -32,3 +32,14 @@ nav span {
   color: #C9B243;
   font-weight: bold;
 }
+
+.user-icon {
+  font-size: 20px;
+  vertical-align: middle;
+  margin-left: 4px;
+  transition: color 0.2s;
+  color: inherit; /* Muy importante: hereda el color del enlace */
+}
+
+
+
