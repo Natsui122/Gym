@@ -42,10 +42,9 @@
     </div>
   </div>
 
-  <div class="tabla-container">
-  <h2 class="titulo-seccion">Mensajes de Contacto</h2>
-  <div class="tabla-scroll">
-    <table class="tabla-oro tabla-grande">
+  <div class="container">
+    <h2>Mensajes de Contacto</h2>
+    <table>
       <thead>
         <tr>
           <th>Nombre</th>
@@ -64,8 +63,8 @@
               <td><input [(ngModel)]="contactoEditado.asunto" /></td>
               <td><input [(ngModel)]="contactoEditado.mensaje" /></td>
               <td>
-                <button class="btn-enviar" (click)="guardarContacto(j)">Guardar</button>
-                <button class="btn-enviar" (click)="cancelarEdicionContacto()">Cancelar</button>
+                <button (click)="guardarContacto(j)">Guardar</button>
+                <button (click)="cancelarEdicionContacto()">Cancelar</button>
               </td>
             </tr>
           } @else {
@@ -75,19 +74,17 @@
               <td>{{ mensaje.asunto }}</td>
               <td>{{ mensaje.mensaje }}</td>
               <td>
-                <button class="btn-enviar" (click)="editarContacto(j)">Editar</button>
-                <button class="btn-enviar" (click)="eliminarContacto(j)">Eliminar</button>
+                <button (click)="editarContacto(j)">Editar</button>
+                <button (click)="eliminarContacto(j)">Eliminar</button>
               </td>
             </tr>
           }
         }
       </tbody>
     </table>
-  </div>
 
-  <h2 class="titulo-seccion mt-5">Suscripciones</h2>
-  <div class="tabla-scroll">
-    <table class="tabla-oro tabla-grande">
+    <h2>Suscripciones</h2>
+    <table>
       <thead>
         <tr>
           <th>Nombre</th>
@@ -106,10 +103,12 @@
               <td><input [(ngModel)]="suscripcionEditada.telefono" /></td>
               <td><input [(ngModel)]="suscripcionEditada.clase" /></td>
               <td><input [(ngModel)]="suscripcionEditada.fecha" type="date" /></td>
-              <td><input type="checkbox" [(ngModel)]="suscripcionEditada.publicidad" /></td>
               <td>
-                <button class="btn-enviar" (click)="guardarSuscripcion(i)">Guardar</button>
-                <button class="btn-enviar" (click)="cancelarEdicionSuscripcion()">Cancelar</button>
+                <input type="checkbox" [(ngModel)]="suscripcionEditada.publicidad" />
+              </td>
+              <td>
+                <button (click)="guardarSuscripcion(i)">Guardar</button>
+                <button (click)="cancelarEdicionSuscripcion()">Cancelar</button>
               </td>
             </tr>
           } @else {
@@ -120,8 +119,8 @@
               <td>{{ suscripcion.fecha }}</td>
               <td>{{ suscripcion.publicidad ? 'Sí' : 'No' }}</td>
               <td>
-                <button class="btn-enviar" (click)="editarSuscripcion(i)">Editar</button>
-                <button class="btn-enviar" (click)="eliminarSuscripcion(i)">Eliminar</button>
+                <button (click)="editarSuscripcion(i)">Editar</button>
+                <button (click)="eliminarSuscripcion(i)">Eliminar</button>
               </td>
             </tr>
           }
@@ -129,7 +128,4 @@
       </tbody>
     </table>
   </div>
-</div>
-
-
 }
