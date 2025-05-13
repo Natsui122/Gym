@@ -15,7 +15,18 @@ export class Formulario1Component {
   //contacto: string [] = [];
   @Output() enviarFormulario = new EventEmitter<{nombre: string, email: string, asunto: string, mensaje: string}>();
 
+  nombreTocado = false;
+  emailTocado = false;
+  asuntoTocado = false;
+  mensajeTocado = false;
+
   enviar() {
+    // Marcar todos los campos como tocados para validar al enviar
+    this.nombreTocado = true;
+    this.emailTocado = true;
+    this.asuntoTocado = true;
+    this.mensajeTocado = true;
+    
     if (this.formularioInvalido()) {
       return; // No hace nada si el formulario no es válido
     }
@@ -30,7 +41,14 @@ export class Formulario1Component {
     this.email = '';
     this.asunto = '';
     this.mensaje = '';
+    
+    // Resetear estados de campos tocados
+    this.nombreTocado = false;
+    this.emailTocado = false;
+    this.asuntoTocado = false;
+    this.mensajeTocado = false;
   }
+  
   formularioInvalido(): boolean {
     return (
       !this.nombre || this.nombre.trim().length < 5 ||
@@ -39,9 +57,4 @@ export class Formulario1Component {
       !this.mensaje || this.mensaje.trim().length < 20
     );
   }
-
-  nombreTocado = false;
-  emailTocado = false;
-  asuntoTocado = false;
-  mensajeTocado = false;
 }

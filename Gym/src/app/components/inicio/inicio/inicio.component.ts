@@ -24,7 +24,7 @@ interface Plan {
   standalone: true,
   templateUrl: './inicio.component.html',
   styleUrls: ['./inicio.component.css'],
-  imports: [FormsModule, Formulario1Component, MatSlideToggleModule, MatCardModule]
+  imports: [FormsModule, Formulario1Component, MatSlideToggleModule, MatCardModule, DomSanitizerPipe]
 })
 export class InicioComponent implements OnInit, OnDestroy {
   indiceActual: number = 0;
@@ -34,7 +34,7 @@ export class InicioComponent implements OnInit, OnDestroy {
     { src: 'eter.jpg', alt: 'Clases Personalizadas' }
   ];
     video:string = 'tUykoP30Gb0?si=uNxmgT-d8vfMca5d';
-  
+
   planes: Plan[] = [];
   mostrarPlanes: boolean = false;
   mostrarFormulario: boolean = true;
@@ -83,34 +83,35 @@ export class InicioComponent implements OnInit, OnDestroy {
   }
 
   obtenerPlanes() {
-    this.http.get<Plan[]>('assets/planes.json').subscribe({
+    this.http.get<Plan[]>('planes.json').subscribe({
       next: (data) => {
-        this.planes = data.slice(0, 3); // Toma solo los primeros 3 planes
+        this.planes = data;
         this.mostrarPlanes = true;
       },
       error: (error) => {
         console.error('Error al cargar planes:', error);
-        // Cargar planes por defecto si hay error
-        this.planes = [
+        // Cargar datos de respaldo en caso de error
+        const planesRespaldo: Plan[] = [
           {
-            nombre: 'Plan Básico',
-            descripcion: 'Acceso al gimnasio durante horario regular',
-            precio: 500,
-            duracion: '1 mes'
+            "nombre": "Plan Básico",
+            "descripcion": "Acceso a todas las áreas del gimnasio.",
+            "precio": 500,
+            "duracion": "1 Mes"
           },
           {
-            nombre: 'Plan Premium',
-            descripcion: 'Acceso ilimitado + clases grupales',
-            precio: 800,
-            duracion: '1 mes'
+            "nombre": "Plan Premium",
+            "descripcion": "Acceso a clases personalizadas y áreas exclusivas.",
+            "precio": 900,
+            "duracion": "1 Mes"
           },
           {
-            nombre: 'Plan VIP',
-            descripcion: 'Acceso total + entrenador personal',
-            precio: 1500,
-            duracion: '1 mes'
+            "nombre": "Plan Anual",
+            "descripcion": "Acceso completo todo el año, con beneficios adicionales.",
+            "precio": 9000,
+            "duracion": "12 Meses"
           }
         ];
+        this.planes = planesRespaldo;
         this.mostrarPlanes = true;
       }
     });
@@ -126,7 +127,7 @@ export class InicioComponent implements OnInit, OnDestroy {
         duracion: plan.duracion
       };
       localStorage.setItem('planSeleccionado', JSON.stringify(planSeleccionado));
-      
+
       Swal.fire({
         position: "top-end",
         icon: "success",

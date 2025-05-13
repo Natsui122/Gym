@@ -31,35 +31,28 @@
     <h2>Nuestras Instalaciones</h2>
     <iframe width="560" height="315" [src]=" video | domSanitizer: 'https://www.youtube.com/embed/'" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
   </div>
-
   <div class="planes mt-8">
     <h2 class="plan">Planes</h2>
-    <div class="grid grid-cols-3 gap-4">
-      <div class="card p-4 bg-gray-100 rounded-lg" id="card1">
-        <h3 id="nombre1"></h3>
-        <p id="descripcion1"></p>
-        <p><strong>Precio:</strong> $<span id="precio1"></span></p>
-        <p><strong>Duración:</strong> <span id="duracion1"></span></p>
-        <button (click)="guardarEnLocalStorage(1)">Seleccionar Plan</button>
+    @if (mostrarPlanes && planes && planes.length > 0) {
+      <div class="grid grid-cols-3 gap-4">
+        @for (plan of planes; track plan.nombre; let i = $index) {
+          <div class="card p-4 bg-gray-100 rounded-lg">
+            <h3>{{ plan.nombre }}</h3>
+            <p>{{ plan.descripcion }}</p>
+            <p><strong>Precio:</strong> ${{ plan.precio }}</p>
+            <p><strong>Duración:</strong> {{ plan.duracion }}</p>
+            <button (click)="guardarEnLocalStorage(i + 1)">Seleccionar Plan</button>
+          </div>
+        }
       </div>
-
-      <div class="card p-4 bg-gray-100 rounded-lg" id="card2">
-        <h3 id="nombre2"></h3>
-        <p id="descripcion2"></p>
-        <p><strong>Precio:</strong> $<span id="precio2"></span></p>
-        <p><strong>Duración:</strong> <span id="duracion2"></span></p>
-        <button (click)="guardarEnLocalStorage(2)">Seleccionar Plan</button>
+    } @else {
+      <div class="text-center text-gray-500">
+        <p>Cargando planes...</p>
       </div>
-
-      <div class="card p-4 bg-gray-100 rounded-lg" id="card3">
-        <h3 id="nombre3"></h3>
-        <p id="descripcion3"></p>
-        <p><strong>Precio:</strong> $<span id="precio3"></span></p>
-        <p><strong>Duración:</strong> <span id="duracion3"></span></p>
-        <button (click)="guardarEnLocalStorage(3)">Seleccionar Plan</button>
-      </div>
-    </div>
+    }
   </div>
+
+
 
   <app-formulario1 (enviarFormulario)="agregarMensaje($event)"></app-formulario1>
 
