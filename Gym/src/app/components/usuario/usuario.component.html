@@ -41,30 +41,32 @@
       <button type="button" class="btn-enviar" (click)="logout()">Cerrar Sesión</button>
     </div>
   </div>
-}
 
-    
-  @if (mensajesContacto.length > 0) {
-
-      <div class="">
-      <h2>Mensajes de Contacto</h2>
-      <table>
+@if (mensajesContacto.length > 0) {
+  <div class="tabla-container">
+    <h2 class="titulo-seccion">Mensajes de Contacto</h2>
+    <div class="tabla-scroll">
+      <table class="tabla-oro">
         <thead>
           <tr>
-            <th>Nombre</th><th>Email</th><th>Asunto</th><th>Mensaje</th><th>Acciones</th>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Asunto</th>
+            <th>Mensaje</th>
+            <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
           @for(mensaje of mensajesContacto; track mensaje; let j = $index) {
             @if(editandoContacto === j) {
               <tr>
-                <td><input [(ngModel)]="contactoEditado.nombre"></td>
-                <td><input [(ngModel)]="contactoEditado.email"></td>
-                <td><input [(ngModel)]="contactoEditado.asunto"></td>
-                <td><input [(ngModel)]="contactoEditado.mensaje"></td>
+                <td><input [(ngModel)]="contactoEditado.nombre" /></td>
+                <td><input [(ngModel)]="contactoEditado.email" /></td>
+                <td><input [(ngModel)]="contactoEditado.asunto" /></td>
+                <td><input [(ngModel)]="contactoEditado.mensaje" /></td>
                 <td>
-                  <button (click)="guardarContacto(j)">Guardar</button>
-                  <button (click)="cancelarEdicionContacto()">Cancelar</button>
+                  <button (click)="guardarContacto(j)" class="btn-enviar">Guardar</button>
+                  <button (click)="cancelarEdicionContacto()" class="btn-cancelar">Cancelar</button>
                 </td>
               </tr>
             } @else {
@@ -74,8 +76,8 @@
                 <td>{{mensaje.asunto}}</td>
                 <td>{{mensaje.mensaje}}</td>
                 <td>
-                  <button (click)="editarContacto(j)">Editar</button>
-                  <button (click)="eliminarContacto(j)">Eliminar</button>
+                  <button (click)="editarContacto(j)" class="btn-editar">Editar</button>
+                  <button (click)="eliminarContacto(j)" class="btn-eliminar">Eliminar</button>
                 </td>
               </tr>
             }
@@ -83,35 +85,42 @@
         </tbody>
       </table>
     </div>
-  }@else if (mensajesContacto.length === 0  && !editandoContacto && loginUsuario) {
-    <div class="alert alert-info">
-      No hay mensajes de contacto.
-    </div>
-  }
-  @if (suscripciones.length > 0) {
+  </div>
+} @else {
+  <div class="mensaje">
+    <p class="text-blanco">No hay mensajes de contacto.</p>
+  </div>
+}
 
-    <div class="">
-      <h2>Suscripciones</h2>
-      <table>
+@if (suscripciones.length > 0) {
+  <div class="tabla-container">
+    <h2 class="titulo-seccion">Suscripciones</h2>
+    <div class="tabla-scroll">
+      <table class="tabla-oro">
         <thead>
           <tr>
-            <th>Nombre</th><th>Teléfono</th><th>Clase</th><th>Fecha</th><th>Publicidad</th><th>Acciones</th>
+            <th>Nombre</th>
+            <th>Teléfono</th>
+            <th>Clase</th>
+            <th>Fecha</th>
+            <th>Publicidad</th>
+            <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
           @for(suscripcion of suscripciones; track suscripcion; let i = $index) {
             @if(editandoSuscripcion === i) {
               <tr>
-                <td><input [(ngModel)]="suscripcionEditada.nombre"></td>
-                <td><input [(ngModel)]="suscripcionEditada.telefono"></td>
-                <td><input [(ngModel)]="suscripcionEditada.clase"></td>
-                <td><input [(ngModel)]="suscripcionEditada.fecha" type="date"></td>
+                <td><input [(ngModel)]="suscripcionEditada.nombre" /></td>
+                <td><input [(ngModel)]="suscripcionEditada.telefono" /></td>
+                <td><input [(ngModel)]="suscripcionEditada.clase" /></td>
+                <td><input [(ngModel)]="suscripcionEditada.fecha" type="date" /></td>
                 <td>
-                  <input type="checkbox" [(ngModel)]="suscripcionEditada.publicidad">
+                  <input type="checkbox" [(ngModel)]="suscripcionEditada.publicidad" />
                 </td>
                 <td>
-                  <button (click)="guardarSuscripcion(i)">Guardar</button>
-                  <button (click)="cancelarEdicionSuscripcion()">Cancelar</button>
+                  <button (click)="guardarSuscripcion(i)" class="btn-enviar">Guardar</button>
+                  <button (click)="cancelarEdicionSuscripcion()" class="btn-cancelar">Cancelar</button>
                 </td>
               </tr>
             } @else {
@@ -122,8 +131,8 @@
                 <td>{{suscripcion.fecha}}</td>
                 <td>{{suscripcion.publicidad ? 'Sí' : 'No'}}</td>
                 <td>
-                  <button (click)="editarSuscripcion(i)">Editar</button>
-                  <button (click)="eliminarSuscripcion(i)">Eliminar</button>
+                  <button (click)="editarSuscripcion(i)" class="btn-editar">Editar</button>
+                  <button (click)="eliminarSuscripcion(i)" class="btn-eliminar">Eliminar</button>
                 </td>
               </tr>
             }
@@ -131,11 +140,11 @@
         </tbody>
       </table>
     </div>
-  } @else if (suscripciones.length === 0 && !editandoSuscripcion && loginUsuario) {
-    <div class="alert alert-info">
-      No hay suscripciones.
-    </div>
-  }
+  </div>
+} @else {
+  <div class="mensaje">
+    <p class="text-blanco">No hay suscripciones.</p>
+  </div>
+}
 
-
-   
+}

@@ -89,3 +89,117 @@
   margin-top: -12px;
   margin-bottom: 16px;
 }
+
+
+/* Estilos para la tabla dentro de secciones tipo admin */
+
+/* Estilos generales */
+.text-blanco {
+  color: #fff;
+}
+
+.tabla-oro {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #333;
+  color: #fff;
+}
+
+.tabla-oro th, .tabla-oro td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #C9B243;
+}
+
+.tabla-oro th {
+  background-color: #C9B243;
+}
+
+.tabla-oro tr:hover {
+  background-color: #C9B243;
+  color: #333;
+}
+
+/* Contenedores de tabla */
+.tabla-container {
+  margin-top: 20px;
+}
+
+.tabla-scroll {
+  overflow-x: auto;
+}
+
+/* Botones */
+.btn-enviar, .btn-editar, .btn-eliminar, .btn-cancelar {
+  padding: 10px 15px;
+  margin: 5px;
+  border: none;
+  cursor: pointer;
+  background-color: #C9B243;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.btn-enviar:hover, .btn-editar:hover, .btn-eliminar:hover, .btn-cancelar:hover {
+  background-color: #C9B243;
+}
+
+.btn-cancelar {
+  background-color: #C9B243;
+}
+
+.btn-cancelar:hover {
+  background-color: #C9B243;
+}
+
+/* Títulos de sección */
+.titulo-seccion {
+  color: #C9B243;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+/* Estilos generales para los mensajes */
+.mensaje {
+  text-align: center;
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #fff;  /* Fondo blanco */
+  border-radius: 10px;
+  border: 1px solid #C9B243;  /* Borde dorado */
+  color: #C9B243;  /* Texto dorado */
+  font-size: 1.2rem;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Estilo específico para los textos dentro de mensaje */
+.mensaje p {
+  margin: 0;
+  padding: 10px 0;
+  color: #C9B243;  /* Texto dorado */
+  font-size: 1.4rem;
+}
+
+/* Mensaje sin datos con un tono más suave */
+.mensaje-no-datos {
+  background-color: #f9f9f9;  /* Fondo blanco suave */
+  border-color: #C9B243;  /* Borde dorado */
+  color: #C9B243;  /* Texto dorado */
+}
+
+/* Estilos para animación de entrada */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
