@@ -89,3 +89,95 @@
   margin-top: -12px;
   margin-bottom: 16px;
 }
+
+
+/* Estilos para la tabla dentro de secciones tipo admin */
+
+.tabla-container {
+  padding: 2rem;
+  max-width: 100%;
+  background-color: #F4F4F4; /* Fondo claro para toda la tabla */
+  border-radius: 12px;
+}
+
+.titulo-seccion {
+  color: #C9B243; /* Dorado */
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Scroll horizontal para tablas anchas */
+.tabla-scroll {
+  overflow-x: auto;
+  margin-bottom: 2rem;
+  border-radius: 10px;
+}
+
+/* Tabla con colores dorados y fondo claro */
+.tabla-oro {
+  width: 100%;
+  min-width: 1000px;
+  border-collapse: collapse;
+  background-color: #FAF2D2; /* Fondo claro tipo crema */
+  border: 1px solid var(--dorado);
+  color: black; /* Texto oscuro para mejor legibilidad */
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Cabecera con fondo dorado y texto oscuro */
+.tabla-oro thead {
+  background-color: var(--dorado); /* Fondo dorado */
+  color: var(--negro); /* Texto negro */
+}
+
+/* Celdas de la tabla */
+.tabla-oro th,
+.tabla-oro td {
+  padding: 14px 18px;
+  text-align: left;
+  border-bottom: 1px solid var(--dorado);
+  font-size: 15px;
+}
+
+/* Hover de filas */
+.tabla-oro tbody tr:hover {
+  background-color: #F7F0D7; /* Un tono más suave de amarillo */
+}
+
+/* Inputs dentro de la tabla */
+.tabla-oro input[type="text"],
+.tabla-oro input[type="email"],
+.tabla-oro input[type="date"] {
+  width: 100%;
+  padding: 6px 10px;
+  border: 1px solid var(--dorado);
+  border-radius: 4px;
+  background-color: #FFF8E1; /* Fondo claro tipo crema */
+  color: #3C3C3C; /* Texto oscuro */
+}
+
+.tabla-oro input[type="checkbox"] {
+  transform: scale(1.2);
+}
+
+/* Botones de acción */
+.tabla-oro button {
+  background-color: var(--dorado); /* Fondo dorado */
+  color: var(--negro); /* Texto negro */
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-right: 6px;
+}
+
+.tabla-oro button:hover {
+  background-color: var(--blanco); /* Fondo blanco */
+  color: var(--dorado); /* Texto dorado */
+  border: 1px solid var(--dorado);
+}
